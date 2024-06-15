@@ -13,11 +13,6 @@ const controls = new OrbitControls(camera, renderer.domElement);
 
 camera.position.set(0, 0, 5); 
 
-/*onst geometry = new THREE.BoxGeometry(1, 1, 1);
-const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-const cube = new THREE.Mesh(geometry, material);
-scene.add(cube);
-*/
 const light = new THREE.AmbientLight(0xfef65b);
 light.intensity = 10; 
 scene.add(light);
@@ -42,8 +37,6 @@ window.addEventListener('resize', () => {
 
 function animate() {
     requestAnimationFrame(animate);
-    //cube.rotation.x += 0.01;
-    //cube.rotation.y += 0.01;
     controls.update();
     renderer.render(scene, camera);
 }
