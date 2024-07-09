@@ -17,9 +17,10 @@ const light = new THREE.AmbientLight(0xfef65b);
 light.intensity = 10; 
 scene.add(light);
 
-const loader = new GLTFLoader().setPath('/obj/1972_datsun_240k_gt/');
+const loader = new GLTFLoader().setPath('{{ $gltf->filepath }}');
 loader.load('scene.gltf', (gltf) => {
-    gltf.scene.position.set(9, 10, 7); 
+    
+    gltf.scene.position.set(0, 0, 0);
     
     gltf.scene.rotation.y = -1
     
