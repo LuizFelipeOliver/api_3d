@@ -3,7 +3,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100000);
 
 const renderer = new THREE.WebGLRenderer({alpha: true});
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -17,9 +17,11 @@ const light = new THREE.AmbientLight(0xfef65b);
 light.intensity = 10; 
 scene.add(light);
 
-const loader = new GLTFLoader();
-console.log(gltfPath);
-loader.load(gltfPath, (gltf) => {
+const gltfPath = window.gltfPath;
+
+const loader = new GLTFLoader().setPath(gltfPath);
+
+loader.load('scene.gltf', (gltf) => {
     
     gltf.scene.position.set(0, 0, 0);
     
