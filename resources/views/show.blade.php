@@ -13,7 +13,8 @@
     <div id="canvas-container"></div>
 
     <script>
-        const gltfPath = "{{ asset('obj/' . $gltf->name_3d . '/scene.gltf') }}";
+         const gltfPath = "{{'/obj/' . $gltf->name_3d}}/";
+        window.gltfPath = gltfPath;
     </script>
 </body>
 
