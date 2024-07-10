@@ -11,6 +11,10 @@
 
 <body class="font-sans antialiased dark:bg-black dark:text-white/50">
     <div id="canvas-container"></div>
+
+    <script>
+        const gltfPath = "{{ asset('obj/' . $gltf->name_3d . '/scene.gltf') }}";
+    </script>
 </body>
 
 </html>

@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('objetos_3d', function (Blueprint $table) {
             $table->id();
-            $table->string('path');
+            $table->string('client');
+            $table->string('name_3d');
+            $table->string('filepath');
             $table->timestamps();
         });
     }
