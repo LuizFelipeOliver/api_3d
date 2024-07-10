@@ -74,11 +74,12 @@ class GlftController extends Controller
         return false;
     }
 
-    public function show(GlftModel $gltf)
+    public function show($name_3d)
     {
-        return view('gltf.show', compact('gltf'));
+        $gltf = GlftModel::where('name_3d', $name_3d)->firstOrFail();
+        return view('show', compact('gltf'));
     }
-
+    
     public function edit(GlftModel $gltf)
     {
         return view('gltf.edit', compact('gltf'));

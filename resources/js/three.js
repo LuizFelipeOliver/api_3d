@@ -17,13 +17,13 @@ const light = new THREE.AmbientLight(0xfef65b);
 light.intensity = 10; 
 scene.add(light);
 
-const loader = new GLTFLoader().setPath('{{ $gltf->filepath }}');
-loader.load('scene.gltf', (gltf) => {
+const loader = new GLTFLoader();
+console.log(gltfPath);
+loader.load(gltfPath, (gltf) => {
     
     gltf.scene.position.set(0, 0, 0);
     
     gltf.scene.rotation.y = -1
-    
     
     scene.add(gltf.scene);
 }, undefined, (error) => {
