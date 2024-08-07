@@ -14,7 +14,7 @@ class GlftController extends Controller
     public function index()
     {
         $objects = GlftModel::all();
-        return view('gltf.index', compact('objects'));
+        return view('index', compact('objects'));
     }
 
     public function create()
@@ -102,7 +102,7 @@ class GlftController extends Controller
             'name_3d' => $request->name_3d,
         ]);
 
-        return redirect()->route('gltf.index')->with('success', 'Arquivo GLTF atualizado com sucesso!');
+        return redirect()->route('index')->with('success', 'Arquivo GLTF atualizado com sucesso!');
     }
 
     private function updateGltfFile(Request $request, GlftModel $gltf)
@@ -123,6 +123,6 @@ class GlftController extends Controller
         Storage::disk('public')->delete($gltf->filepath);
         $gltf->delete();
 
-        return redirect()->route('gltf.index')->with('success', 'Arquivo GLTF removido com sucesso!');
+        return redirect()->route('index')->with('success', 'Arquivo GLTF removido com sucesso!');
     }
 }
