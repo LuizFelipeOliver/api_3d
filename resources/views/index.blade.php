@@ -6,7 +6,7 @@
 <body>
     <h1>Lista de Objetos GLTF</h1>
     <ul>
-        @foreach($objects as $object)
+        @foreach($object as $obj)
             <li>{{ $object->name_3d }}</li>
         @endforeach
     </ul>

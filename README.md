@@ -1,4 +1,4 @@
-# api_3d
+# Blue Marlgin 🐟
 
 Este projeto Laravel é dedicado ao gerenciamento de arquivos 3D GLTF, permitindo o upload, armazenamento, visualização e edição de objetos 3D através de uma interface web.
 
@@ -39,4 +39,3 @@ php artisan migrate && npx vite &
 2 ssh -i nome_chave ubuntu@ip_servidor
 ou porta ssh arlterada
 ssh -i nome_chave -p valor_porta ubuntu@ip_servidor
-

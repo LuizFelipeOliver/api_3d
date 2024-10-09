@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('objetos_3d', function (Blueprint $table) {
+        Schema::create('glb_models', function (Blueprint $table) {
             $table->id();
-            $table->string('client');
-            $table->string('name_3d');
-            $table->string('filepath');
             $table->timestamps();
         });
     }
@@ -25,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('objetos_3d');
+        Schema::dropIfExists('glb_models');
     }
 };
