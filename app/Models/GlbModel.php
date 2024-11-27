@@ -9,5 +9,6 @@ class GlbModel extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['client', 'name_3d', 'filepath'];
+    protected $table = 'glb_models';
+    protected $fillable = ['client', 'name_3d', 'filename', 'filepath'];
 }
