@@ -61,24 +61,26 @@ class GlbController extends Controller
         return back()->with('error', 'Erro ao armazenar o arquivo')->withInput();
     }
 
-    public function show($filename)
+    public function show($filename, Request $request)
     {
         $glb = GlbModel::where('filename', $filename)->firstOrFail();
 
+        if ($request->wantsJson() || $request->expectsJson()) {
+            $path = storage_path('app/' . $glb->filepath);
 
-        return view(
-            'show',
-            compact('glb')
-        );
-        /*
-        return response()->file(
-            $path,
-            [
-                'Content-Type' => 'model/gltf-binary',
-                'Content-Disposition' => 'inline; filename="'.basename($path).'"',
-            ]
-        );
-        */
+            if (!file_exists($path)) {
+                return response()->json(['error' => 'Arquivo não encontrado'], 404);
+            }
+
+            return response()->file(
+                $path,
+                [
+                    'Content-Type' => 'model/gltf-binary',
+                    'Content-Disposition' => 'inline; filename="' . basename($path) . '"',
+                ]
+            );
+        }
+        return view('show', compact('glb'));
     }
 
     public function edit(GlbModel $glb)
